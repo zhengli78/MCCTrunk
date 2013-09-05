@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Google Maps API v3 Example: Directions Simple</title>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script> 
+var directionDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+function initialize()
+{
+            directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+    var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+    var myOptions =
+    {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: center
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map);
+    var start = "Pune";     //Set the source/ origin
+    var end = "Mumbai";  //Set the destination
+    var request =
+    {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+    };
+    directionsService.route(request, function(response, status)
+    {
+            if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+            {
+            directionsDisplay.setDirections(response);  
+                //Display the directions result
+               var resp = JSON.parse(response);
+                alert(resp);
+            }
+    });
+}
+function initialize2(startAdd, endAdd)
+{
+	directionsService = new google.maps.DirectionsService(); 
+    directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+    var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+    var myOptions =
+    {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: center
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    directionsDisplay.setMap(map);
+    var start = startAdd;     //Set the source/ origin
+    var end = endAdd;  //Set the destination
+    var request =
+    {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+    };
+    directionsService.route(request, function(response, status)
+    {
+            if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+            {
+				directionsDisplay.setDirections(response);         //Display the directions result
+				//var resp = JSON.parse(response);
+				//alert(resp.routes.legs.steps);
+            }
+    });
+}
+$( "#directionMap" ).click(function(){
+  initialize2($("#sAdd").val(), $("#eAdd").val());
+});
+</script>
+</head>
+<body>
+Starting Address: <input type="text" id="sAdd"><br>
+Ending Address  : <input type="text" id="eAdd"><br>
+<button id="directionMap">Show Map</button>
+<div id="map_canvas" style="height: 400px; width: 400px"></div>
+<body>
+<html>
