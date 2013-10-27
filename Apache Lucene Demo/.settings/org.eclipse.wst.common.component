@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="lucene-xml-query-demo">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="lucene-facet-4.5.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-facet-4.5.1/lucene-facet-4.5.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-demo-4.5.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-demo-4.5.1/lucene-demo-4.5.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-queryparser-4.5.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-queryparser-4.5.1/lucene-queryparser-4.5.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-core-4.5.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-core-4.5.1/lucene-core-4.5.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-queries-4.5.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-queries-4.5.1/lucene-queries-4.5.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="lucene-xml-query-demo"/>
+        <property name="java-output-path" value="/lucene-xml-query-demo/build/classes"/>
+    </wb-module>
+</project-modules>
